@@ -1,38 +1,43 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    private Vector2 inputVector;
-    private float2 position = new float2();
-    private EntityManager em;
+    [SerializeField] float moveSpeed = 5f;
 
-    public int maxHp = 100;
-    public int hp;
+    EntityManager em;
+    Entity inputEntity;
+    float2 inputMove;
+
+    void Awake()
+    {
+        em = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+        var query = em.CreateEntityQuery(typeof(PlayerInput));
+        if (query.IsEmpty)
+        {
+            inputEntity = em.CreateEntity(typeof(PlayerInput));
+            em.SetComponentData(inputEntity, new PlayerInput { Move = float2.zero });
+        }
+        else
+        {
+            inputEntity = query.GetSingletonEntity();
+        }
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        inputVector = context.ReadValue<Vector2>();
+        var v = context.ReadValue<Vector2>();
+        inputMove = new float2(v.x, v.y);
     }
 
-    public void Start()
+    void Update()
     {
-        em = World.DefaultGameObjectInjectionWorld.EntityManager;
-        em.CreateEntity(typeof(PlayerPosition));
-        em.SetComponentData(PlayerPosition ) ;
-    }
-
-        void Update()
+        if (em.Exists(inputEntity))
         {
-            transform.Translate(inputVector * moveSpeed * Time.deltaTime, Space.World);
-            
-            position.x = inputVector.x;
-            position.y = inputVector.y;
-            em.SetComponentData(em, new PlayerPosition { Value = position });
+            em.SetComponentData(inputEntity, new PlayerInput { Move = inputMove });
         }
+    }
 }
