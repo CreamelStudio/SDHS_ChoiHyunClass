@@ -8,6 +8,8 @@ public class EnemyAuthoring : MonoBehaviour
     public int maxHp = 10;
     public float hitRadius = 0.35f;
     public int contactDamage = 5;
+    public int xpOnDeath = 1;
+
 
     class Baker : Baker<EnemyAuthoring>
     {
@@ -22,6 +24,7 @@ public class EnemyAuthoring : MonoBehaviour
             AddComponent(e, new Health { Current = authoring.maxHp, Max = authoring.maxHp });
             AddComponent(e, new HitRadius { Value = authoring.hitRadius });
             AddComponent(e, new Damage { Value = authoring.contactDamage });
+            AddComponent(e, new EnemyXpValue { Value = authoring.xpOnDeath });
         }
     }
 }

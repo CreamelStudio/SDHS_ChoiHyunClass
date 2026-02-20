@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 40063243}
   - component: {fileID: 40063242}
   - component: {fileID: 40063244}
+  - component: {fileID: 40063245}
   m_Layer: 0
   m_Name: PlayerEntity
   m_TagString: Untagged
@@ -226,6 +227,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &40063245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40063241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6b9022c1a29546ab9092d2d465da93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerWeaponLoadoutAuthoring
+  startPistol: 1
+  startShotgun: 0
+  startRailgun: 0
+  startKnife: 1
 --- !u!1 &1133244190
 GameObject:
   m_ObjectHideFlags: 0

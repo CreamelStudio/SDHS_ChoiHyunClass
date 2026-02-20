@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7576329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7576331}
+  - component: {fileID: 7576330}
+  m_Layer: 0
+  m_Name: GamePrefabsAuthoring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7576330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9060285be0214e239f7c16901ca2dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GamePrefabsAuthoring
+  projectilePrefab: {fileID: 5082201932611468707, guid: 2b4b2ad4d8f714e0d99903268fd9a918, type: 3}
+  xpOrbPrefab: {fileID: 8678017099288127042, guid: 9a77caf8cfee54d23a8b65fe45cb9145, type: 3}
+--- !u!4 &7576331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576329}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1091,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 619394802}
   - {fileID: 1144056713}
+  - {fileID: 7576331}
   - {fileID: 791124469}
   - {fileID: 1523214270}
   - {fileID: 1476808239}

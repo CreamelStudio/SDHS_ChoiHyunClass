@@ -17,6 +17,24 @@ public class PlayerEntityAuthoring : MonoBehaviour
             AddComponent(e, new MoveSpeed { Value = authoring.moveSpeed });
             AddComponent(e, new Health { Current = authoring.maxHp, Max = authoring.maxHp });
             AddComponent(e, new HitRadius { Value = authoring.hitRadius });
+            
+            AddComponent(e, new PlayerCombatStats
+            {
+                DamageMul = 1f,
+                AttackSpeedMul = 1f,
+                RangeAdd = 0f,
+                ProjectileSpeedMul = 1f,
+                PierceAdd = 0
+            });
+
+            AddComponent(e, new PlayerProgress
+            {
+                Level = 1,
+                CurrentXp = 0f,
+                NextXp = 5f
+            });
+
+            AddBuffer<EquippedWeapon>(e);
         }
     }
 }
